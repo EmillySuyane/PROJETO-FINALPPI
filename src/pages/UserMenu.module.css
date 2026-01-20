@@ -1,0 +1,99 @@
+.container {
+  position: relative;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, var(--primary), var(--primary-soft));
+  color: var(--primary-contrast);
+  font-size: 1.3rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 5px 15px var(--shadow);
+  transition: 0.3s;
+}
+
+.avatar:hover {
+  transform: scale(1.05);
+}
+
+/* Dropdown */
+.dropdown {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 220px;
+  background: var(--card);
+  border-radius: 18px;
+  padding: 1.2rem;
+  box-shadow: 0 15px 40px var(--shadow);
+  animation: fadeIn 0.2s ease;
+  z-index: 10;
+  border: 1px solid var(--border);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.name {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.email {
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  margin-bottom: 0.8rem;
+}
+
+.dropdown hr {
+  border: none;
+  height: 1px;
+  background: var(--border);
+  margin: 0.8rem 0;
+}
+
+.btn {
+  width: 100%;
+  background: var(--primary-soft);
+  border: none;
+  padding: 0.6rem;
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--primary);
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background: var(--primary);
+  color: var(--primary-contrast);
+}
+
+.logout {
+  width: 100%;
+  background: var(--danger);
+  border: none;
+  padding: 0.6rem;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.logout:hover {
+  opacity: 0.9;
+}

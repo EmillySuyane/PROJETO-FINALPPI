@@ -1,0 +1,295 @@
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 0.5rem 0;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+}
+
+.date {
+  background: #f0f0f0;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #666;
+  text-transform: capitalize;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.statCard {
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.statCard:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border-color: #0969da;
+  transform: translateY(-2px);
+}
+
+.statContent {
+  flex: 1;
+}
+
+.statLabel {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.statValue {
+  margin: 0.5rem 0 0 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0969da;
+}
+
+.statSubtitle {
+  margin: 0.25rem 0 0 0;
+  display: block;
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.statIcon {
+  font-size: 2.5rem;
+  margin-left: 1rem;
+}
+
+.progressBar {
+  width: 100%;
+  height: 8px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  margin: 0.5rem 0;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.section {
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.sectionHeader h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.seeAll {
+  background: #f0f0f0;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0969da;
+  transition: all 0.2s ease;
+}
+
+.seeAll:hover {
+  background: #0969da;
+  color: white;
+}
+
+.empty {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #999;
+}
+
+.empty p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.tasksList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.taskItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: #f6f8fa;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.taskItem:hover {
+  background: #e8f0fe;
+}
+
+.taskStatus {
+  font-size: 1.2rem;
+  min-width: 24px;
+}
+
+.taskText {
+  margin: 0;
+  color: #1a1a1a;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+
+.eventsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.eventItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: #f6f8fa;
+  border-left: 4px solid #0969da;
+  border-radius: 8px;
+}
+
+.eventDate {
+  background: #0969da;
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.eventTitle {
+  margin: 0;
+  color: #1a1a1a;
+  font-weight: 500;
+  flex: 1;
+}
+
+.subjectsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.subjectBadge {
+  background: linear-gradient(135deg, #0969da, #0860ca);
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.notesList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.notePreview {
+  background: #f6f8fa;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 3px solid #ffd93d;
+}
+
+.notePreviewText {
+  margin: 0;
+  color: #1a1a1a;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+@media (max-width: 1024px) {
+  .mainGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .statValue {
+    font-size: 1.5rem;
+  }
+
+  .statIcon {
+    font-size: 2rem;
+  }
+}

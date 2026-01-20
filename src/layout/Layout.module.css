@@ -1,0 +1,89 @@
+.app {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  height: 64px; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.menuBtn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+  width: 40px;
+  height: 40px;
+  color: var(--text);
+  border-radius: 8px;
+}
+
+.menuBtn:hover {
+  background: var(--primary-soft);
+}
+
+
+.subbar {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  color: var(--primary);
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+.backBtn:hover {
+  background: var(--primary-soft);
+  transform: translateX(-3px);
+}
+
+
+.content {
+  flex: 1;
+  padding: 32px;
+}

@@ -1,0 +1,17 @@
+.toggle {
+  background: var(--bg-soft);
+  border: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+}
+
+.toggle:hover {
+  background: var(--primary-soft);
+}
