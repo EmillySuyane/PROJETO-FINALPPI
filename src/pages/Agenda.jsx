@@ -1,22 +1,63 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useApp } from "../context/AppContext";
+import { supabase } from "../services/supabase";
 import styles from "./Agenda.module.css";
 
 export default function Agenda() {
   const { events, setEvents } = useApp();
-  const [title, setTitle] = useState("");
-  const [date, setDate] = useState("");
+  const [titulo, setTitulo] = useState("");
+  const [descricao, setDescricao] = useState("");
+  const [data, setData] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  function addEvent() {
-    if (!title || !date) return;
+  useEffect(() => {
+    fetchTasks();
+  }, []);
 
-    setEvents([...events, { id: Date.now(), title, date }]);
-    setTitle("");
-    setDate("");
+  async function fetchTasks() {
+    const { data: tasks, error } = await supabase
+      .from("tasks")
+      .select("*")
+      .order("data", { ascending: true });
+
+    if (error) {
+      console.error("Erro ao buscar tarefas:", error);
+    } else {
+      setEvents(tasks || []);
+    }
   }
 
-  function deleteEvent(id) {
-    setEvents(events.filter((event) => event.id !== id));
+  async function addEvent() {
+    if (!titulo || !data) return;
+    setLoading(true);
+
+    const { data: newTask, error } = await supabase
+      .from("tasks")
+      .insert([{ titulo, descricao, data, status: "pendente" }])
+      .select();
+
+    if (error) {
+      console.error("Erro ao adicionar tarefa:", error);
+    } else {
+      setEvents([...events, ...newTask]);
+      setTitulo("");
+      setDescricao("");
+      setData("");
+    }
+    setLoading(false);
+  }
+
+  async function deleteEvent(id) {
+    const { error } = await supabase
+      .from("tasks")
+      .delete()
+      .eq("id", id);
+
+    if (error) {
+      console.error("Erro ao deletar tarefa:", error);
+    } else {
+      setEvents(events.filter((event) => event.id !== id));
+    }
   }
 
   return (
@@ -27,18 +68,26 @@ export default function Agenda() {
         <div className={styles.form}>
           <input
             type="text"
-            placeholder="Nome do evento"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            placeholder="Título"
+            value={titulo}
+            onChange={(e) => setTitulo(e.target.value)}
+          />
+
+          <textarea
+            placeholder="Descrição (opcional)"
+            value={descricao}
+            onChange={(e) => setDescricao(e.target.value)}
           />
 
           <input
             type="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
+            value={data}
+            onChange={(e) => setData(e.target.value)}
           />
 
-          <button onClick={addEvent}>Adicionar</button>
+          <button onClick={addEvent} disabled={loading}>
+            {loading ? "Adicionando..." : "Adicionar"}
+          </button>
         </div>
       </div>
 
@@ -46,13 +95,15 @@ export default function Agenda() {
         {events.map((event) => (
           <div key={event.id} className={styles.event}>
             <div className={styles.eventInfo}>
-              <span>{event.title}</span>
-              <small>{event.date}</small>
+              <span><strong>{event.titulo}</strong></span>
+              {event.descricao && <p>{event.descricao}</p>}
+              <small>{event.data}</small>
+              <small>Status: {event.status}</small>
             </div>
             <button
               className={styles.deleteBtn}
               onClick={() => deleteEvent(event.id)}
-              title="Deletar evento"
+              title="Deletar tarefa"
             >
               🗑️
             </button>

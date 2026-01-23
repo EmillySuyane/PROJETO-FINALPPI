@@ -39,7 +39,7 @@ export default function Notes() {
           value={text}
           onChange={e => setText(e.target.value)}
           onKeyPress={handleKeyPress}
-          placeholder="Escreva sua anotação aqui... (Ctrl+Enter para salvar)"
+          placeholder="Escreva sua anotação aqui... "
         />
 
         <button 
